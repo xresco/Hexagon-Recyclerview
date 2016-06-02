@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="HexagonRecyclerView">
+        <attr name="items_horizontal_spacing" format="dimension" />
+        <attr name="items_vertical_spacing" format="dimension" />
+        <attr name="items_count_in_row" format="integer" />
+        <attr name="orientation" format="enum">
+            <enum name="horizontal" value="0" />
+            <enum name="vertical" value="1" />
+        </attr>
+    </declare-styleable>
+
+</resources>

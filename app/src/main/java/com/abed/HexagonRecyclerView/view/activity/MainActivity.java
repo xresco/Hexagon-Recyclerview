@@ -58,22 +58,25 @@ public class MainActivity extends AppCompatActivity implements CountriesAdapter.
         countriesAdapter = new CountriesAdapter(new LinkedList<>(), this);
         recyclerView = (RecyclerView) findViewById(R.id.rvItems);
 
-        GridLayoutManager mLayoutManager = new GridLayoutManager(this, 2);
+
+        int mRowSize = 5;
+        int itemsInTwoRows = mRowSize * 2 - 1;
+        int itemsCountInSmallRow = mRowSize - 1;
+        Log.d("items: ", itemsCountInSmallRow + " _ " + itemsInTwoRows);
+
+        GridLayoutManager mLayoutManager = new GridLayoutManager(this, mRowSize * itemsCountInSmallRow);
         mLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
         mLayoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
             @Override
             public int getSpanSize(int position) {
-                switch (position % 3) {
-                    case 0:
-                        return 2;
-                    default:
-                        return 1;
-                }
+                if ((position % itemsInTwoRows >= 0) && (position % itemsInTwoRows <= itemsCountInSmallRow - 1))
+                    return mRowSize;
+                return itemsCountInSmallRow;
             }
         });
 
         recyclerView.setLayoutManager(mLayoutManager);
-        recyclerView.addItemDecoration(new HorizontalOverlapDecorator(10,10));
+        recyclerView.addItemDecoration(new HorizontalOverlapDecorator(mRowSize, 10, 10));
         countries = new LinkedList<>();
         for (int i = 0; i <= 100; i++)
             countries.add(new Country("test"));
@@ -81,16 +84,13 @@ public class MainActivity extends AppCompatActivity implements CountriesAdapter.
         recyclerView.setAdapter(countriesAdapter);
 
 
-
-
     }
-
 
 
     @Override
     public void onStorySelected(View view, int position, Country country) {
 //        CountryDetailsActivity.startActivity(this, country);
         Toast.makeText(this, position + " ", Toast.LENGTH_SHORT).show();
-        Log.d(TAG, "onStorySelected: "+position);
+        Log.d(TAG, "onStorySelected: " + position);
     }
 }
