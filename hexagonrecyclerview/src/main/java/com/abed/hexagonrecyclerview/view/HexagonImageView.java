@@ -1,15 +1,18 @@
-package com.abed.HexagonRecyclerView.view.misc;
+package com.abed.hexagonrecyclerview.view;
 
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 
-import com.github.siyamed.shapeimageview.HexagonImageView;
+import com.github.siyamed.shapeimageview.ShaderImageView;
 
 /**
- * Created by Mindvalley on 3/14/16.
+ * Created by mindvalley on 03/06/2016.
  */
-public class SquareImageView extends HexagonImageView {
+
+
+public abstract class HexagonImageView extends ShaderImageView {
+
 
     /**
      * Max allowed duration for a "click", in milliseconds.
@@ -25,34 +28,21 @@ public class SquareImageView extends HexagonImageView {
     private boolean stayedWithinClickDistance;
 
 
-    public SquareImageView(Context context) {
+    public HexagonImageView(Context context) {
         super(context);
     }
 
-    public SquareImageView(Context context, AttributeSet attrs) {
+    public HexagonImageView(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
-    public SquareImageView(Context context, AttributeSet attrs, int defStyleAttr) {
-        super(context, attrs, defStyleAttr);
-    }
-
-    @Override
-    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-
-        int height = getMeasuredHeight();
-        double width = 1.1547005383 * height; //(sqrt(3)/2)
-        setMeasuredDimension((int) width, height);
-//        getPathHelper().
+    public HexagonImageView(Context context, AttributeSet attrs, int defStyle) {
+        super(context, attrs, defStyle);
     }
 
 
     @Override
     public boolean dispatchTouchEvent(MotionEvent event) {
-//        return super.dispatchTouchEvent(event);
-        System.out.println("dispatch " + event.getAction());
-
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN: {
                 pressStartTime = System.currentTimeMillis();
@@ -84,17 +74,14 @@ public class SquareImageView extends HexagonImageView {
 
 
     private boolean checkIfClickInsideTheCircle(float touchX, float touchY) {
-        ;
         float centerX, centerY, radius;
         centerX = getWidth() / 2;
         centerY = getHeight() / 2;
         radius = centerX - 20;
         if (Math.pow(touchX - centerX, 2)
                 + Math.pow(touchY - centerY, 2) < Math.pow(radius, 2)) {
-            System.out.println("Inside Circle");
             return true;
         } else {
-            System.out.println("Outside Circle");
             return false;
         }
     }
