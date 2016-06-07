@@ -4,12 +4,6 @@ android {
     compileSdkVersion 23
     buildToolsVersion "23.0.3"
 
-
-//    compileOptions {
-//        sourceCompatibility JavaVersion.VERSION_1_8
-//        targetCompatibility JavaVersion.VERSION_1_8
-//    }
-
     defaultConfig {
         applicationId "com.abed.HexagonRecyclerViewSample"
         minSdkVersion 14
@@ -33,6 +27,6 @@ dependencies {
     compile 'com.android.support:appcompat-v7:23.4.0'
     compile 'com.android.support:recyclerview-v7:23.4.0'
     compile 'com.github.bumptech.glide:glide:3.7.0'
-    compile project(":hexagonrecyclerview")
+    compile 'com.mindvalley.android:hexagonrecyclerview:1.0.0'
     compile 'com.github.siyamed:android-shape-imageview:0.9.+@aar'
 }
