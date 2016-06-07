@@ -35,10 +35,10 @@ compile 'com.mindvalley.android:hexagonrecyclerview:1.0.0'
 
 
 
-Uage
+Usage
 --------
 
-The Hexagon-Recyclerview is a child of the default Recyclerview, which makes the usage of the Hexagon-Recyclerview exactly similar to using the default recyclerview.
+The Hexagon-Recyclerview is a child of the default Recyclerview, which makes using the Hexagon-Recyclerview exactly similar to using the default recyclerview.
 
 - Add the Hexagon-Recyclerview to the xml layout file
 
