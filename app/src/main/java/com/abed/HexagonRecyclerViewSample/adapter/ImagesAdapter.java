@@ -83,6 +83,7 @@ public class ImagesAdapter extends RecyclerView.Adapter<ImagesAdapter.CustomView
             Glide.with((imageView).getContext())
                     .load(image_url)
                     .asBitmap()
+                    .placeholder(R.drawable.sample)
                     .into(imageView);
         }
 

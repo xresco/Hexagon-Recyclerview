@@ -1,5 +1,34 @@
 apply plugin: 'com.android.library'
 
+def packageName = 'com.mindvalley.android'
+def library_version = '1.0.0'
+
+
+ext {
+    bintrayRepo = 'maven'
+    bintrayName = 'hexagon-recyclerview'
+
+    publishedGroupId = packageName
+    libraryName = 'hexagonrecyclerview'
+    artifact = 'hexagonrecyclerview'
+
+    libraryDescription = 'A wrapper for Facebook Native Like Button (LikeView) on Android'
+
+    siteUrl = 'https://github.com/xresco/Hexagon-Recyclerview'
+    gitUrl = 'https://github.com/xresco/Hexagon-Recyclerview.git'
+
+    libraryVersion = library_version
+
+    developerId = 'xresco'
+    developerName = 'Abed Almoradi'
+    developerEmail = 'abd.almoradi@gmail.com'
+
+    licenseName = 'The Apache Software License, Version 2.0'
+    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+    allLicenses = ["Apache-2.0"]
+}
+
+
 android {
     compileSdkVersion 23
     buildToolsVersion "23.0.3"
@@ -30,3 +59,6 @@ dependencies {
     compile 'com.android.support:recyclerview-v7:23.4.0'
     compile 'com.github.siyamed:android-shape-imageview:0.9.+@aar'
 }
+
+apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/installv1.gradle'
+apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/bintrayv1.gradle'
