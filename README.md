@@ -101,7 +101,9 @@ Vertical                   |  Horizontal
 My Contact:
 --------
 If you have any comment or question don't hesitate to contact me.
+
 my email: abd.almoradi@gmail.com
+
 Thank you.
 
 
