@@ -2,11 +2,15 @@ package com.abed.hexagonrecyclerview.view;
 
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.graphics.drawable.LayerDrawable;
+import android.os.Build;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
+import android.util.Log;
+import android.view.ViewTreeObserver;
 
 import com.abed.hexagonrecyclerview.R;
 import com.abed.hexagonrecyclerview.controller.HorizontalOverlapDecorator;
@@ -18,6 +22,7 @@ import com.abed.hexagonrecyclerview.controller.VerticalOverlapDecorator;
  */
 
 public class HexagonRecyclerView extends RecyclerView {
+
     public HexagonRecyclerView(Context context) {
         super(context);
         configure(null);
@@ -43,7 +48,7 @@ public class HexagonRecyclerView extends RecyclerView {
         float horizontal_spacing = typedArray.getDimension(R.styleable.HexagonRecyclerView_items_horizontal_spacing, 0.0f);
         float vertical_spacing = typedArray.getDimension(R.styleable.HexagonRecyclerView_items_vertical_spacing, 0.0f);
         final int row_size = typedArray.getInt(R.styleable.HexagonRecyclerView_items_count_in_row, 2);
-        int orientation = typedArray.getInt(R.styleable.HexagonRecyclerView_orientation, 0);
+        final int orientation = typedArray.getInt(R.styleable.HexagonRecyclerView_orientation, 0);
         typedArray.recycle();
 
 
@@ -65,7 +70,7 @@ public class HexagonRecyclerView extends RecyclerView {
         });
 
         setLayoutManager(mLayoutManager);
-
+        this.setClipToPadding(false);
         if (orientation == 0) {
             mLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
             addItemDecoration(new HorizontalOverlapDecorator(row_size, horizontal_spacing, vertical_spacing));
@@ -73,5 +78,31 @@ public class HexagonRecyclerView extends RecyclerView {
             mLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
             addItemDecoration(new VerticalOverlapDecorator(row_size, horizontal_spacing, vertical_spacing));
         }
+
+
+        //Adjust the padding at the end of the recycler view
+        ViewTreeObserver vto = this.getViewTreeObserver();
+        vto.addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+
+            @Override
+            public void onGlobalLayout() {
+                int smallRow_padding_top_bottom = getHeight() / (row_size * 2);
+                //shift the items so the interpolate
+                int item_row_shift = (int) (smallRow_padding_top_bottom / Math.sqrt(3));
+                if (orientation == 0)
+                    setPadding(0, 0, item_row_shift, 0);
+                else
+                    setPadding(0, 0, 0, item_row_shift);
+                ViewTreeObserver obs = HexagonRecyclerView.this.getViewTreeObserver();
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+                    obs.removeOnGlobalLayoutListener(this);
+                } else {
+                    obs.removeGlobalOnLayoutListener(this);
+                }
+            }
+
+        });
     }
+
+
 }

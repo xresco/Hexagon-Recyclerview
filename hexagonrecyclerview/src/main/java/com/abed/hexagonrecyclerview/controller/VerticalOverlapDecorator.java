@@ -23,33 +23,37 @@ public class VerticalOverlapDecorator extends RecyclerView.ItemDecoration {
     public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
         int position = parent.getChildAdapterPosition(view);
 
+        //the number of the items in two rows (one small row and one big row)
         int itemsInTwoRows = mRowSize * 2 - 1;
+        //the number of the items in a small row
         int itemsCountInSmallRow = mRowSize - 1;
         //pad the small row by half of the size of an item in the big row
         int smallRow_padding_top_bottom = parent.getWidth() / (mRowSize * 2);
         // resize the items in the small row to make them equal to the items in big row by squeezing them
         int smallRow_padding_item_squeez = parent.getWidth() / (mRowSize * itemsCountInSmallRow);
         //shift the items so the interpolate
-        int item_row_shift =-1 * (int) (smallRow_padding_top_bottom / Math.sqrt(3)) + mSpaceHeight;
+        int item_row_shift = -1 * (int) (smallRow_padding_top_bottom / Math.sqrt(3)) + mSpaceHeight;
 
+        //calculate how each item should be shifted
         double offset_up = 0;
         double offset_down = item_row_shift;
         double offset_left = 0;
         double offset_right = 0;
 
-
-        double i = 1.5 * itemsCountInSmallRow - mRowSize;
+        // the factor the will be used to shif the items in the middle of the small row
+        double shift_factor = 1.5 * itemsCountInSmallRow - mRowSize;
 
         if (((position % itemsInTwoRows) >= 0) && ((position % itemsInTwoRows) < itemsCountInSmallRow)) {
-            offset_left = (i - ((position % itemsInTwoRows) - 1)) * smallRow_padding_item_squeez;
-            offset_right = ((position % itemsInTwoRows) - i) * smallRow_padding_item_squeez;
+            offset_left = (shift_factor - ((position % itemsInTwoRows) - 1)) * smallRow_padding_item_squeez;
+            offset_right = ((position % itemsInTwoRows) - shift_factor) * smallRow_padding_item_squeez;
 
         }
 
-
+        //adjust the offset_left of the first item in the small row to be half of the size of one item in the big row
         if ((position % itemsInTwoRows) == 0) {
             offset_left = smallRow_padding_top_bottom;
         }
+        //adjust the offset_right of the last item in the small row to be half of the size of one item in the big row
         if ((position % itemsInTwoRows) == itemsCountInSmallRow - 1) {
             offset_right = smallRow_padding_top_bottom;
         }

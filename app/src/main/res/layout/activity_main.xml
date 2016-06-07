@@ -10,9 +10,9 @@
         android:layout_height="match_parent"
         android:layout_alignParentLeft="true"
         android:layout_centerVertical="true"
-        app:items_count_in_row="2"
+        app:items_count_in_row="3"
         app:items_horizontal_spacing="20dp"
         app:items_vertical_spacing="20dp"
-        app:orientation="horizontal" />
+        app:orientation="vertical" />
 
 </RelativeLayout>
