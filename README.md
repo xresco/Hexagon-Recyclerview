@@ -6,7 +6,7 @@ This is a recyclerview where items are interpolated in a way that looks like a h
 
 Vertical                   |  Horizontal 
 :-------------------------:|:-------------------------:
-![](http://s33.postimg.org/8yrvutjlb/device_2016_06_07_130311.png)  |  ![](http://s33.postimg.org/yorbqvgbz/device_2016_06_07_132415.png)
+![](http://s33.postimg.org/pyqwbpawf/device_2016_06_07_153844.png)  |  ![](http://s33.postimg.org/vnfklk8rz/device_2016_06_07_153715.png)
 
 
 
