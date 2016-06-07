@@ -13,6 +13,6 @@
         app:items_count_in_row="3"
         app:items_horizontal_spacing="20dp"
         app:items_vertical_spacing="20dp"
-        app:orientation="horizontal" />
+        app:orientation="vertical" />
 
 </RelativeLayout>

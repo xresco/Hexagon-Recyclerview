@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.abed.hexagonrecyclerview.view.HorizontallyAdaptableHexagonImageView xmlns:android="http://schemas.android.com/apk/res/android"
+<com.abed.hexagonrecyclerview.view.VerticallyAdaptableHexagonImageView xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/img_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
