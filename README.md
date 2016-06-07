@@ -1,6 +1,6 @@
 # Hexagon-Recyclerview
 
-This is a recyclerview where items are interpolateD in a way that looks like a honeycomb. It can be customized to be vertically  or horizontally scrollable. 
+This is a recyclerview where items are interpolated in a way that looks like a honeycomb. It can be customized to be vertically  or horizontally scrollable. 
 
 
 
@@ -41,12 +41,7 @@ Uage
 The Hexagon-Recyclerview is a child of the default Recyclerview, which makes the usage of the Hexagon-Recyclerview exactly similar to using the default recyclerview.
 
 - Add the Hexagon-Recyclerview to the xml layout file
-- The Hexagon-Recyclerview has 4 paramters to specify: 
-  - items_count_in_row: a number that is more than 2. It specifies the number of the items in the big row of the Hexagon-Recyclerview
-  - items_horizontal_spacing: (optional. Default 0dp) It specifies the dimension of the horizontal spacing between the items.
-  - items_vertical_spacing: (optional. Default 0dp) It specifies the dimension of the vertical spacing between the items.
-  - orientation: has two values horizontal/vertical. If not specified then the default value is horizontal.
-  
+
 ```groovy
 <com.abed.hexagonrecyclerview.view.HexagonRecyclerView xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/rvItems"
@@ -59,8 +54,17 @@ The Hexagon-Recyclerview is a child of the default Recyclerview, which makes the
         app:items_vertical_spacing="20dp"
         app:orientation="horizontal" />
 ```
+- The Hexagon-Recyclerview has 4 paramters to specify: 
+  - items_count_in_row: a number that is more than 2. It specifies the number of the items in the big row of the Hexagon-Recyclerview
+  - items_horizontal_spacing: (optional. Default 0dp) It specifies the dimension of the horizontal spacing between the items.
+  - items_vertical_spacing: (optional. Default 0dp) It specifies the dimension of the vertical spacing between the items.
+  - orientation: has two values horizontal/vertical. If not specified then the default value is horizontal.
+  
 
-The layout of the item inside the Hexagon-Recyclerview (Which will be used inside the adapter) can be anything. In case you want to show hexagon imagewviews then you write the following in the xml layout file of the item:
+###### The recyclerview item: 
+The layout of the item inside the Hexagon-Recyclerview (Which will be used inside the adapter) can be anything.
+
+In case you want to show hexagon imagewviews then you write the following in the xml layout file of the item:
 
 - For horizontal Recyclerview:
 ```groovy
@@ -94,6 +98,11 @@ Vertical                   |  Horizontal
 
 
 
+My Contact:
+--------
+If you have any comment or question don't hesitate to contact me.
+my email: abd.almoradi@gmail.com
+Thank you.
 
 
 
