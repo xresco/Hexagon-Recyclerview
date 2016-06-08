@@ -18,11 +18,7 @@ Download via Gradle:
 ```groovy
 allprojects {
     repositories {
-        .
-        .
-        maven {
-            url 'https://dl.bintray.com/xresco/maven/'
-        }
+       jcenter()
     }
 }
 ```
