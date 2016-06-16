@@ -24,7 +24,7 @@ allprojects {
 ```
 - Add this to your dependencies
 ```groovy
-compile 'com.mindvalley.android:hexagonrecyclerview:1.0.0'
+compile 'com.mindvalley.android:hexagonrecyclerview:1.0.1'
 ```
 
 
