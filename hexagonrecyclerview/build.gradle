@@ -12,7 +12,7 @@ ext {
     libraryName = 'hexagonrecyclerview'
     artifact = 'hexagonrecyclerview'
 
-    libraryDescription = 'A wrapper for Facebook Native Like Button (LikeView) on Android'
+    libraryDescription = 'This is a recyclerview where items are interpolated in a way that looks like a honeycomb. It can be customized to be vertically or horizontally scrollable.'
 
     siteUrl = 'https://github.com/xresco/Hexagon-Recyclerview'
     gitUrl = 'https://github.com/xresco/Hexagon-Recyclerview.git'
